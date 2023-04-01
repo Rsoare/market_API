@@ -1,8 +1,8 @@
-import { NextFunction, request, Request, Response } from "express";
+import { NextFunction, Request, Response } from "express";
 import market from "./database";
 import { IproductRequest } from "./interfaces";
 
-const checkDuplicateProduct = (
+const checkDuplicateNameProduct = (
    request: Request,
    response: Response,
    next: NextFunction
@@ -67,4 +67,4 @@ const checkDuplicateNameUpdate = (
    return next();
 };
 
-export { checkDuplicateProduct, checkExistenceOfId, checkDuplicateNameUpdate };
+export { checkDuplicateNameProduct,checkExistenceOfId, checkDuplicateNameUpdate };

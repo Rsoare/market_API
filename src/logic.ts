@@ -1,6 +1,6 @@
-import { request, Request, Response } from "express";
+import {Request, Response } from "express";
 import market from "./database";
-import { Iproduct, IproductRequest } from "./interfaces";
+import { ICleanindProduct, IFoodProduct, Iproduct, IproductRequest } from "./interfaces";
 
 const createProducts = (request:Request,response:Response):Response =>{
 
@@ -19,10 +19,11 @@ const createProducts = (request:Request,response:Response):Response =>{
 
       totalPrice += product.price
 
-      const newProductsList = {
-         id:newId,
+
+      const newProductsList: IFoodProduct | ICleanindProduct  = {
+         id: newId,
          ...product,
-         expirationDate:productExpiration
+         expirationDate: productExpiration,
       }
 
       market.push(newProductsList)
@@ -75,7 +76,7 @@ const updateProductsById = (request:Request,response:Response):Response =>{
 
    const currentProduct = market[productIndex]
 
-   const productUpdate:Iproduct = {
+   const productUpdate:IFoodProduct | ICleanindProduct  = {
          ...currentProduct,
          ...newData
    }
@@ -96,6 +97,5 @@ const deleteProduct = (resquest:Request,response:Response):Response=>{
 
    return response.status(204).send()
 }
-
 
 export {createProducts,getAllProducts,getProductsById,updateProductsById,deleteProduct}

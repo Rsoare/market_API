@@ -1,12 +1,12 @@
 import express, { Application } from 'express'
 import { createProducts, deleteProduct, getAllProducts, getProductsById, updateProductsById } from './logic'
-import {  checkDuplicateNameUpdate, checkDuplicateProduct, checkExistenceOfId } from './middlewares'
+import {  checkDuplicateNameUpdate, checkDuplicateNameProduct, checkExistenceOfId } from './middlewares'
 
 const app: Application = express()
 
 app.use(express.json())
 
-app.post('/products',checkDuplicateProduct,createProducts)
+app.post('/products',checkDuplicateNameProduct,createProducts)
 
 app.get('/products',getAllProducts)
 

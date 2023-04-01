@@ -4,6 +4,7 @@ interface Iproduct {
    price: number;
    weight: number;
    section: "food" | "cleaning";
+   expirationDate:Date
 }
 
 type IproductRequest = Omit<Iproduct, 'id' | 'expirationDate'>

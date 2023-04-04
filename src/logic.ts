@@ -1,10 +1,10 @@
 import {Request, Response } from "express";
 import market from "./database";
-import { ICleanindProduct, IFoodProduct, Iproduct, IproductRequest } from "./interfaces";
+import { ICleanindProduct, IFoodProduct, IproductRequest } from "./interfaces";
 
 const createProducts = (request:Request,response:Response):Response =>{
 
-   const newProductArray:Iproduct[] = []
+   const newProductArray:Array<IFoodProduct | ICleanindProduct> = []
 
    let totalPrice = 0 
 

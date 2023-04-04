@@ -1,5 +1,5 @@
-import { Iproduct } from "./interfaces"
+import { ICleanindProduct, IFoodProduct} from "./interfaces"
 
-const market: Iproduct[] = [] 
+const market: Array<IFoodProduct | ICleanindProduct> = [] 
 
 export default market
